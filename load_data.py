@@ -33,13 +33,4 @@ def loadDataSet(jsonFile):
     jsonObj = loadJson(jsonFile)
     dataSet = {'ids': loadIds(jsonObj), 'cuisines': loadCuisines(jsonObj),
                'ingredients': loadIngredients(jsonObj)}
-
-    print(dataSet)
-
-
-def main():
-    loadDataSet('train.json')
-
-
-if __name__ == "__main__":
-    main()
+    return dataSet

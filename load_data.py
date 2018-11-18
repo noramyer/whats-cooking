@@ -22,8 +22,6 @@ def stringify(ingredients):
 
 
 def loadIngredients(jsonObj):
-    # ingredients = np.array([stringify(dish['ingredients'])
-    #                         for dish in jsonObj])
 
     ingredients = np.array(
         [np.array(stringify(dish['ingredients'])) for dish in jsonObj])
@@ -31,7 +29,8 @@ def loadIngredients(jsonObj):
     return ingredients
 
 
-def loadDataSet(jsonObj):
+def loadDataSet(jsonFile):
+    jsonObj = loadJson(jsonFile)
     dataSet = {'ids': loadIds(jsonObj), 'cuisines': loadCuisines(jsonObj),
                'ingredients': loadIngredients(jsonObj)}
 
@@ -39,12 +38,7 @@ def loadDataSet(jsonObj):
 
 
 def main():
-    jsonObj = loadJson("train.json")
-
-    # cuisines = loadCuisines(jsonObj)
-    ingredients = loadIngredients(jsonObj)
-    print ingredients
-    # ids = loadIds(jsonObj)
+    loadDataSet('train.json')
 
 
 if __name__ == "__main__":

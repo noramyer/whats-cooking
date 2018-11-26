@@ -16,5 +16,14 @@ ingredients = dataset['ingredients'] # 2D Numpy Array of ingredients
 
 cuisinesSet = dataset['cuisinesSet'] # set of the 20 cuisines represented
 cuisinesCount = dataset['cuisinesCount'] # frequency of each of the 20 cuisines in the dataset
-ingredientsCount = dataset['ingredientsCount'] # frequency of each of the ~6000 ingredients in the dataset
+ingredientsSet = dataset['ingredientsCount'] # set of the 6714 ingredients represented
+ingredientsCount = dataset['ingredientsCount'] # frequency of each of the 6714 ingredients in the dataset
+```
+
+### Creating array of ingredients for recipes
+
+```
+import learn
+
+encodedRecipes = learn.encodeRecipes()
 ```

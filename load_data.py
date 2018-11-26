@@ -54,11 +54,13 @@ def loadDataSet(jsonFile):
     cuisines = loadCuisines(jsonObj)
     ids = loadIds(jsonObj)
     ingredients = loadIngredients(jsonObj)
+    ingredientsCount = countIngredients(ingredients)
 
     dataSet = {'ids': ids,
                'cuisines': cuisines,
                'ingredients': ingredients,
                'cuisinesSet': set(cuisines),
-               'ingredientsCount': countIngredients(ingredients),
-               'cuisinesCount': countCuisines(cuisines)}
+               'cuisinesCount': countCuisines(cuisines),
+               'ingredientsCount': ingredientsCount,
+               'ingredientsSet': set(ingredientsCount.keys())}
     return dataSet

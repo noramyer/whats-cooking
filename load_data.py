@@ -39,7 +39,13 @@ def countIngredients(ingredientsArray):
 
 
 def countCuisines(cuisinesArray):
-    return set(cuisinesArray)
+    cuisinesCount = {}
+    for c in cuisinesArray:
+        if c in cuisinesCount:
+            cuisinesCount[c] += 1
+        else:
+            cuisinesCount[c] = 1
+    return cuisinesCount
 
 
 def loadDataSet(jsonFile):
@@ -52,6 +58,7 @@ def loadDataSet(jsonFile):
     dataSet = {'ids': ids,
                'cuisines': cuisines,
                'ingredients': ingredients,
-               'cuisinesSet': countCuisines(cuisines),
-               'ingredientsCount': countIngredients(ingredients)}
+               'cuisinesSet': set(cuisines),
+               'ingredientsCount': countIngredients(ingredients),
+               'cuisinesCount': countCuisines(cuisines)}
     return dataSet

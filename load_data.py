@@ -22,15 +22,36 @@ def stringify(ingredients):
 
 
 def loadIngredients(jsonObj):
-
     ingredients = np.array(
         [np.array(stringify(dish['ingredients'])) for dish in jsonObj])
-
     return ingredients
+
+
+def countIngredients(ingredientsArray):
+    ingredientsCount = {}
+    for recipe in ingredientsArray:
+        for i in recipe:
+            if i in ingredientsCount:
+                ingredientsCount[i] += 1
+            else:
+                ingredientsCount[i] = 1
+    return ingredientsCount
+
+
+def countCuisines(cuisinesArray):
+    return set(cuisinesArray)
 
 
 def loadDataSet(jsonFile):
     jsonObj = loadJson(jsonFile)
-    dataSet = {'ids': loadIds(jsonObj), 'cuisines': loadCuisines(jsonObj),
-               'ingredients': loadIngredients(jsonObj)}
+
+    cuisines = loadCuisines(jsonObj)
+    ids = loadIds(jsonObj)
+    ingredients = loadIngredients(jsonObj)
+
+    dataSet = {'ids': ids,
+               'cuisines': cuisines,
+               'ingredients': ingredients,
+               'cuisinesSet': countCuisines(cuisines),
+               'ingredientsCount': countIngredients(ingredients)}
     return dataSet

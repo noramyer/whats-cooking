@@ -1,4 +1,5 @@
 import load_data
+import numpy as np
 
 
 def encodeRecipes():
@@ -20,4 +21,13 @@ def encodeRecipes():
         encodedRecipes.append(encodedRecipe)
         print "Finished %i of 39,773." % idx
 
+    return encodedRecipes
+
+
+def writeRecipes(encodedRecipes):
+    np.savetxt("recipe_arrays.txt", encodedRecipes, fmt="%s")
+
+
+def loadRecipes():
+    encodedRecipes = np.loadtxt("recipe_arrays.txt")
     return encodedRecipes

@@ -95,5 +95,3 @@ def train_model(classifier, x_train, y_train, test_matrix, test_matrix_expected_
     predictions = classifier.predict(test_matrix)
 
     return metrics.accuracy_score(predictions, test_matrix_expected_results)
-
-naiveBayes()

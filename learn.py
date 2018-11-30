@@ -1,6 +1,7 @@
 import load_data
 import numpy as np
-from sklearn.naive_bayes import MultinomialNB, metrics
+import json
+from sklearn import naive_bayes, metrics
 
 """ The cuisine_freq_table is a frequency table which holds the real counts of ingredients in each
 cuisine type based on recipes that will be used in Naive Bayes analysis
@@ -21,15 +22,17 @@ cuisine_total_counts = {}
 
 def encodeRecipes(jsonFile):
     dataset = load_data.loadDataSet(jsonFile)
-    jsonObj = loadJson(jsonFile)
+    jsonObj = load_data.loadJson(jsonFile)
 
     recipesList = dataset['ingredients']
     ingredientsList = list(dataset['ingredientsSet'])
-    cuisineList = dataset['cuisinesSet']
+    cuisineList = list(dataset['cuisinesSet'])
     cuisineMap = {}
 
-    for j in len(cuisineList):
-        cuisineMap[j] = cuisineList[j]
+    for j in range(len(cuisineList)):
+        cuisineMap[cuisineList[j]] = j
+
+    print str(cuisineMap)
 
     """ 2-D array storing a representation of each recipe. Each recipe is
     encoded as an array of 1's and 0's representing the ingredients it does and
@@ -40,7 +43,7 @@ def encodeRecipes(jsonFile):
 
     for idx, dish in enumerate(jsonObj):
         encodedRecipe = []
-        encodedResults[idx] = cuisineMap[dish["cuisine"]]
+        encodedResults.append(cuisineMap[dish["cuisine"]])
         for i in ingredientsList:
             encodedRecipe.append('1' if i in dish["ingredients"] else '0')
         encodedRecipes.append(encodedRecipe)
@@ -53,7 +56,7 @@ def writeRecipes(encodedRecipes):
     np.savetxt("recipe_arrays.txt", encodedRecipes, fmt="%s")
 
 def naiveBayes():
-    nb_model = MultinomialNB()
+    nb_model = naive_bayes.MultinomialNB()
     x_train, y_train = encodeRecipes("train.json")
     x_test, y_test, cuisine_map, recipe_total_count = encodeRecipes("test.json")
 
@@ -71,3 +74,5 @@ def train_model(classifier, x_train, y_train, test_matrix, test_matrix_expected_
     predictions = classifier.predict(test_matrix)
 
     return metrics.accuracy_score(predictions, test_matrix_expected_results)
+
+naiveBayes()

@@ -20,10 +20,10 @@ ingredientsSet = dataset['ingredientsCount'] # set of the 6714 ingredients repre
 ingredientsCount = dataset['ingredientsCount'] # frequency of each of the 6714 ingredients in the dataset
 ```
 
-### Reading in array of ingredients for recipes
+### Creating arrays of ingredients for recipes
 
 ```
 import learn
 
-recipes = learn.loadRecipes()
+recipes = learn.encodeRecipes()
 ```

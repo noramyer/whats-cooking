@@ -19,6 +19,8 @@ tomato        2/5       2/3       1/1
 """
 cuisine_likelihood_table = {}
 cuisine_total_counts = {}
+cuisineMap = {}
+global_ingredients_list = []
 
 def encodeRecipes(jsonFile):
     dataset = load_data.loadDataSet(jsonFile)
@@ -26,8 +28,8 @@ def encodeRecipes(jsonFile):
 
     recipesList = dataset['ingredients']
     ingredientsList = list(dataset['ingredientsSet'])
+    global_ingredients_list = ingredientsList
     cuisineList = list(dataset['cuisinesSet'])
-    cuisineMap = {}
 
     for j in range(len(cuisineList)):
         cuisineMap[cuisineList[j]] = j
@@ -49,8 +51,27 @@ def encodeRecipes(jsonFile):
         encodedRecipes.append(encodedRecipe)
         print "Finished %i of 39,773." % idx
 
-    return encodedRecipes, encodedResults, cuisineMap, len(jsonObj)
+    return encodedRecipes, encodedResults
 
+def encodeTestRecipes(jsonFile, ingredientsList, cuisineMap):
+    jsonObj = load_data.loadJson(jsonFile)
+
+    encodedRecipes = []
+    encodedResults = []
+
+    for idx, dish in enumerate(jsonObj):
+        encodedRecipe = []
+
+        if not dish["cuisine"] in cuisineMap:
+            continue
+
+        encodedResults.append(cuisineMap[dish["cuisine"]])
+        for i in ingredientsList:
+            encodedRecipe.append('1' if i in dish["ingredients"] else '0')
+        encodedRecipes.append(encodedRecipe)
+        print "Finished %i of 39,773." % idx
+
+    return encodedRecipes, encodedResults, len(jsonObj)
 
 def writeRecipes(encodedRecipes):
     np.savetxt("recipe_arrays.txt", encodedRecipes, fmt="%s")
@@ -58,7 +79,7 @@ def writeRecipes(encodedRecipes):
 def naiveBayes():
     nb_model = naive_bayes.MultinomialNB()
     x_train, y_train = encodeRecipes("train.json")
-    x_test, y_test, cuisine_map, recipe_total_count = encodeRecipes("test.json")
+    x_test, y_test, recipe_total_count = encodeTestRecipes("test.json", global_ingredients_list, cuisineMap)
 
     accuracy = train_model(nb_model, x_train, y_train, x_test, y_test)
     print("Recipe classification complete. Getting accuracy results now ...")

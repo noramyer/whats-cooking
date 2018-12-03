@@ -1,0 +1,287 @@
+[
+  {
+    "id": 6138,
+    "cuisine": "chinese",
+    "ingredients": [
+      "hoisin sauce",
+      "chinese five-spice powder",
+      "boar",
+      "ginger",
+      "chinese black vinegar",
+      "soy sauce",
+      "Shaoxing wine",
+      "garlic cloves",
+      "honey",
+      "chile bean paste",
+      "fresh chile"
+    ]
+  },
+  {
+    "id": 49462,
+    "cuisine": "italian",
+    "ingredients": [
+      "kosher salt",
+      "crushed red pepper flakes",
+      "onions",
+      "fresh rosemary",
+      "new potatoes",
+      "garlic cloves",
+      "black pepper",
+      "heavy cream",
+      "bread dough",
+      "grated parmesan cheese",
+      "extra-virgin olive oil"
+    ]
+  },
+  {
+    "id": 12876,
+    "cuisine": "mexican",
+    "ingredients": [
+      "beans",
+      "cheese",
+      "guacamole",
+      "sour cream",
+      "diced tomatoes",
+      "sliced black olives",
+      "taco seasoning"
+    ]
+  },
+  {
+    "id": 45244,
+    "cuisine": "italian",
+    "ingredients": [
+      "black pepper",
+      "white rice",
+      "grated parmesan cheese",
+      "yellow onion",
+      "chicken broth",
+      "butter",
+      "olive oil",
+      "salt"
+    ]
+  },
+  {
+    "id": 17946,
+    "cuisine": "italian",
+    "ingredients": [
+      "pinenuts",
+      "garlic",
+      "bay leaf",
+      "sea salt",
+      "spaghetti squash",
+      "roma tomatoes",
+      "yellow onion",
+      "black pepper",
+      "basil",
+      "carrots"
+    ]
+  },
+  {
+    "id": 23370,
+    "cuisine": "italian",
+    "ingredients": [
+      "romano cheese",
+      "olive oil",
+      "salt",
+      "(   oz.) tomato paste",
+      "minced garlic",
+      "shallots",
+      "chopped parsley",
+      "pepper",
+      "dry white wine",
+      "shrimp",
+      "dried oregano",
+      "dried basil",
+      "diced tomatoes",
+      "spaghetti"
+    ]
+  },
+  {
+    "id": 47350,
+    "cuisine": "chinese",
+    "ingredients": [
+      "water",
+      "jalapeno chilies",
+      "yellow bell pepper",
+      "roasted peanuts",
+      "ground beef",
+      "buns",
+      "vinegar",
+      "dry sherry",
+      "peanut butter",
+      "corn starch",
+      "mayonaise",
+      "hoisin sauce",
+      "sesame oil",
+      "garlic",
+      "scallions",
+      "soy sauce",
+      "shredded carrots",
+      "ginger",
+      "sauce",
+      "red bell pepper"
+    ]
+  },
+  {
+    "id": 13485,
+    "cuisine": "cajun_creole",
+    "ingredients": [
+      "food colouring",
+      "granulated sugar",
+      "vegetable oil",
+      "milk",
+      "cake",
+      "salt",
+      "shortening",
+      "large eggs",
+      "lemon",
+      "ground cinnamon",
+      "active dry yeast",
+      "decorating sugars",
+      "all-purpose flour"
+    ]
+  },
+  {
+    "id": 1771,
+    "cuisine": "italian",
+    "ingredients": [
+      "ricotta cheese",
+      "flat leaf parsley",
+      "pepper",
+      "salt",
+      "rigatoni",
+      "tomato sauce",
+      "garlic",
+      "chopped garlic",
+      "parmesan cheese",
+      "shredded mozzarella cheese"
+    ]
+  },
+  {
+    "id": 32791,
+    "cuisine": "italian",
+    "ingredients": [
+      "olive oil",
+      "garlic cloves",
+      "mussels",
+      "diced tomatoes",
+      "flat leaf parsley",
+      "clam juice",
+      "spaghettini",
+      "tomato paste",
+      "crushed red pepper"
+    ]
+  },
+  {
+    "id": 28337,
+    "cuisine": "mexican",
+    "ingredients": [
+      "evaporated milk",
+      "whipping cream",
+      "large eggs",
+      "strawberries",
+      "sugar",
+      "mint sprigs",
+      "sweetened condensed milk",
+      "unsalted butter",
+      "cake flour"
+    ]
+  },
+  {
+    "id": 48395,
+    "cuisine": "italian",
+    "ingredients": [
+      "garlic",
+      "balsamic vinegar",
+      "plum tomatoes",
+      "fresh basil",
+      "Italian bread",
+      "extra-virgin olive oil"
+    ]
+  },
+  {
+    "id": 20219,
+    "cuisine": "italian",
+    "ingredients": [
+      "fresh rosemary",
+      "coarse salt",
+      "olive oil",
+      "hot water",
+      "dried porcini mushrooms",
+      "all purpose unbleached flour",
+      "brine-cured olives",
+      "dry yeast"
+    ]
+  },
+  {
+    "id": 22902,
+    "cuisine": "mexican",
+    "ingredients": [
+      "vegetable oil",
+      "water",
+      "long-grain rice",
+      "salt",
+      "lime",
+      "chopped cilantro"
+    ]
+  },
+  {
+    "id": 12740,
+    "cuisine": "italian",
+    "ingredients": [
+      "baby spinach",
+      "lemon",
+      "olive oil"
+    ]
+  },
+  {
+    "id": 7029,
+    "cuisine": "cajun_creole",
+    "ingredients": [
+      "parsnips",
+      "sweet potatoes",
+      "vegetable broth",
+      "banana peppers",
+      "canola oil",
+      "celery ribs",
+      "file powder",
+      "chile pepper",
+      "all-purpose flour",
+      "roasted tomatoes",
+      "black-eyed peas",
+      "red beans",
+      "garlic",
+      "smoked paprika",
+      "green bell pepper",
+      "serrano peppers",
+      "cajun seasoning",
+      "okra",
+      "onions"
+    ]
+  },
+  {
+    "id": 33626,
+    "cuisine": "mexican",
+    "ingredients": [
+      "white onion",
+      "white hominy",
+      "bay leaves",
+      "garlic",
+      "pork shoulder",
+      "water",
+      "low sodium chicken broth",
+      "vegetable oil",
+      "dried guajillo chiles",
+      "kosher salt",
+      "jalapeno chilies",
+      "Mexican oregano",
+      "white beans",
+      "ground cumin",
+      "avocado",
+      "fresh cilantro",
+      "serrano peppers",
+      "chile de arbol",
+      "ancho chile pepper"
+    ]
+  }
+]

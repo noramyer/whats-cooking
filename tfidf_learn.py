@@ -135,7 +135,7 @@ def learnCuisines(trainingData, trainingLabels, testData, testLabels, SGD=False)
         predicted = text_clf.predict(testData)
 
         result = np.mean(predicted == testLabels)
-        print('naive bayes: %s' % str(result))
+        print('sgd bayes: %s' % str(result))
 
 
 def main():

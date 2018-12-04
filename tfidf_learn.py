@@ -121,12 +121,14 @@ def learnCuisines(trainingData, trainingLabels, testData, testLabels, SGD=False)
     result = np.mean(predicted == testLabels)
     print('naive bayes: %s' % str(result))
 
-    if SGD:
-        print('hinge loss:')
+    functions = ['hinge', 'log', 'perceptron']
+    for function in functions:
+
+        print('-'*100)
         text_clf = Pipeline([
             ('vect', CountVectorizer()),
             ('tfidf', TfidfTransformer()),
-            ('clf', SGDClassifier(loss='hinge', penalty='l2',
+            ('clf', SGDClassifier(loss=function, penalty='l2',
                                   alpha=1e-6, random_state=42,
                                   max_iter=200, tol=None))
         ])
@@ -136,22 +138,23 @@ def learnCuisines(trainingData, trainingLabels, testData, testLabels, SGD=False)
         predicted = text_clf.predict(testData)
 
         result = np.mean(predicted == testLabels)
-        print('hinge loss accuracy: %s' % str(result))
+        print('%s loss accuracy: %s' % (function, str(result)))
+        print('='*100)
 
-        text_clf = Pipeline([
-            ('vect', CountVectorizer()),
-            ('tfidf', TfidfTransformer()),
-            ('clf', SGDClassifier(loss='log', penalty='l2',
-                                  alpha=1e-6, random_state=42,
-                                  max_iter=100, tol=None))
-        ])
+        # text_clf = Pipeline([
+        #     ('vect', CountVectorizer()),
+        #     ('tfidf', TfidfTransformer()),
+        #     ('clf', SGDClassifier(loss='log', penalty='l2',
+        #                           alpha=1e-6, random_state=42,
+        #                           max_iter=100, tol=None))
+        # ])
 
-        text_clf.fit(trainingData, trainingLabels)
+        # text_clf.fit(trainingData, trainingLabels)
 
-        predicted = text_clf.predict(testData)
+        # predicted = text_clf.predict(testData)
 
-        result = np.mean(predicted == testLabels)
-        print('logistic loss accuracy: %s' % str(result))
+        # result = np.mean(predicted == testLabels)
+        # print('logistic loss accuracy: %s' % str(result))
 
 
 def main():

@@ -47,7 +47,7 @@ def encodeRecipes(jsonFile):
         encodedRecipe = []
         encodedResults.append(cuisineMap[dish["cuisine"]])
         for i in ingredientsList:
-            encodedRecipe.append('1' if i in dish["ingredients"] else '0')
+            encodedRecipe.append(1 if i in dish["ingredients"] else 0)
         encodedRecipes.append(encodedRecipe)
         print "Finished %i of 39,773." % idx
 
@@ -67,31 +67,22 @@ def encodeTestRecipes(jsonFile, ingredientsList, cuisineMap):
 
         encodedResults.append(cuisineMap[dish["cuisine"]])
         for i in ingredientsList:
-            encodedRecipe.append('1' if i in dish["ingredients"] else '0')
+            encodedRecipe.append(1 if i in dish["ingredients"] else 0)
         encodedRecipes.append(encodedRecipe)
         print "Finished %i of 39,773." % idx
 
     return encodedRecipes, encodedResults, len(jsonObj)
 
-def writeRecipes(encodedRecipes):
-    np.savetxt("recipe_arrays.txt", encodedRecipes, fmt="%s")
-
 def naiveBayes():
     nb_model = naive_bayes.MultinomialNB()
-    x_train, y_train = encodeRecipes("train.json")
-    x_test, y_test, recipe_total_count = encodeTestRecipes("test.json", global_ingredients_list, cuisineMap)
+    x_train, y_train = encodeRecipes("tiny_train.json")
+    x_test, y_test, recipe_total_count = encodeTestRecipes("tiny_test.json", global_ingredients_list, cuisineMap)
 
     accuracy = train_model(nb_model, x_train, y_train, x_test, y_test)
     print("Recipe classification complete. Getting accuracy results now ...")
-    print("MultinomialNB accuracy for %i recipes = %f" %recipe_total_count, accuracy)
+    print("MultinomialNB accuracy for %i recipes = %f" % recipe_total_count, accuracy)
 
-def loadRecipes():
-    encodedRecipes = np.loadtxt("recipe_arrays.txt")
-    return encodedRecipes
-
-def train_model(classifier, x_train, y_train, test_matrix, test_matrix_expected_results):
+def train_model(classifier, x_train, y_train, x_test, y_test):
     classifier.fit(x_train, y_train)
-
-    predictions = classifier.predict(test_matrix)
-
-    return metrics.accuracy_score(predictions, test_matrix_expected_results)
+    predictions = classifier.predict(x_test)
+    return metrics.accuracy_score(predictions, y_test)

@@ -122,12 +122,13 @@ def learnCuisines(trainingData, trainingLabels, testData, testLabels, SGD=False)
     print('naive bayes: %s' % str(result))
 
     if SGD:
+        print('hinge loss:')
         text_clf = Pipeline([
             ('vect', CountVectorizer()),
             ('tfidf', TfidfTransformer()),
             ('clf', SGDClassifier(loss='hinge', penalty='l2',
-                                  alpha=1e-3, random_state=42,
-                                  max_iter=5, tol=None))
+                                  alpha=1e-6, random_state=42,
+                                  max_iter=200, tol=None))
         ])
 
         text_clf.fit(trainingData, trainingLabels)
@@ -135,7 +136,22 @@ def learnCuisines(trainingData, trainingLabels, testData, testLabels, SGD=False)
         predicted = text_clf.predict(testData)
 
         result = np.mean(predicted == testLabels)
-        print('sgd bayes: %s' % str(result))
+        print('hinge loss accuracy: %s' % str(result))
+
+        text_clf = Pipeline([
+            ('vect', CountVectorizer()),
+            ('tfidf', TfidfTransformer()),
+            ('clf', SGDClassifier(loss='log', penalty='l2',
+                                  alpha=1e-6, random_state=42,
+                                  max_iter=100, tol=None))
+        ])
+
+        text_clf.fit(trainingData, trainingLabels)
+
+        predicted = text_clf.predict(testData)
+
+        result = np.mean(predicted == testLabels)
+        print('logistic loss accuracy: %s' % str(result))
 
 
 def main():

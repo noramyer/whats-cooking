@@ -10,15 +10,18 @@ Machine learning on recipe ingredients
 
 Use train.json and test.json for running the classifiers
 
-###About the data
+### About the data
 Total Number of Recipes:  25580
+
 Number of Cuisines:  20
+
 Highest Occurring Cuisines:
   ('italian', 5024)
   ('mexican', 4130)
   ('southern_us', 2757)
 
 Number of Ingredients:  5955
+
 Highest Occurring Ingredients:
   ('salt', 11629)
   ('onions', 5162)
@@ -45,7 +48,7 @@ Data format:
 }
 ```
 
-###Data representations
+### Data representations
 There are two different data representations used with naive bayes, SGD, and logistic regression models.
 Once ran, wait for the data to encode
 ```
@@ -53,13 +56,13 @@ Encoding training data. Progress:
 [=====================================-----------------------] 61.2%
 ```
 
-####Feature Vector
+#### Feature Vector
 To see classifier accuracies with feature vector representation, run:
 ```
 $python feature_vector_learn.py
 ```
 
-####TF-IDF
+#### TF-IDF
 To see classifier accuracies with tfidf_learn, run:
 ```
 $python tfidf_learn.py

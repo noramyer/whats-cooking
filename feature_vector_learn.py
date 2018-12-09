@@ -98,9 +98,11 @@ def naiveBayes():
 
 def sgd():
     print "Beginning stochastic gradient descent analysis."
-    sgdModel = linear_model.SGDClassifier(loss='hinge', penalty='l2', alpha=1e-3, random_state=42, max_iter=100, tol=1e-3)
-    accuracy = train_model(sgdModel, xTrain, yTrain, xTest, yTest)
-    print "Stochastic gradient descent accuracy for %i recipes = %f" % (testRecipeTotalCount, accuracy)
+    for function in ['hinge', 'log', 'perceptron']:
+        sgdModel = linear_model.SGDClassifier(loss=function,
+            penalty='l2', alpha=1e-3, random_state=42, max_iter=100, tol=1e-3)
+        accuracy = train_model(sgdModel, xTrain, yTrain, xTest, yTest)
+        print "SGD with %s loss has accuracy for %i recipes = %f" % (function, testRecipeTotalCount, accuracy)
 
 def logisticRegression():
     print "Beginning logistic regression analysis."

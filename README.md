@@ -42,7 +42,7 @@ Data format:
 ### Using the datasets
 4 different data sets:
   - tiny_train.json #small, 3-cuisine typed dataset to quickly fit models
-  - tiny_test.json #small, 3-cuisine types recipes to quickly predict with classifiers
+  - tiny_test.json #small, 3-cuisine typed recipes to quickly predict with classifiers
   - train.json #the main data set,around 26,000 classified recipes
   - test.json #main test data for classifiers, about 14,000 recipes
 
@@ -85,12 +85,4 @@ cuisinesSet = dataset['cuisinesSet'] # set of the 20 cuisines represented
 cuisinesCount = dataset['cuisinesCount'] # frequency of each of the 20 cuisines in the dataset
 ingredientsSet = dataset['ingredientsCount'] # set of the 6714 ingredients represented
 ingredientsCount = dataset['ingredientsCount'] # frequency of each of the 6714 ingredients in the dataset
-```
-
-### Creating arrays of ingredients for recipes
-
-```
-import learn
-
-recipes = learn.encodeRecipes()
 ```

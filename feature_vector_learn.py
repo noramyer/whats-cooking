@@ -98,7 +98,6 @@ def naiveBayes():
 
 def sgd():
     print "Beginning stochastic gradient descent analysis."
-    # TODO check parameters for sgdModel
     sgdModel = linear_model.SGDClassifier(loss='hinge', penalty='l2', alpha=1e-3, random_state=42, max_iter=100, tol=1e-3)
     accuracy = train_model(sgdModel, xTrain, yTrain, xTest, yTest)
     print "Stochastic gradient descent accuracy for %i recipes = %f" % (testRecipeTotalCount, accuracy)

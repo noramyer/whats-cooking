@@ -1,5 +1,6 @@
 # whats-cooking
-Machine learning on recipe ingredients to classify cuisine
+Machine learning on recipe ingredients to classify cuisine.
+Authors: Serena Davis, Emily Engle, Frank Meszaros, Nora Myer
 
 ### About the data
 Total Number of Recipes:  25580
@@ -67,22 +68,4 @@ $python feature_vector_learn.py
 To see classifier accuracies with TF-IDF representation, run:
 ```
 $python tfidf_learn.py
-```
-### Loading data set
-
-```
-import load_data
-
-...
-
-dataset = load_data.loadDataSet('train.json')
-
-ids = dataset['ids'] # numpy array of each id
-cuisines = dataset['cuisines'] # numpy array of each cuisine
-ingredients = dataset['ingredients'] # 2D Numpy Array of ingredients
-
-cuisinesSet = dataset['cuisinesSet'] # set of the 20 cuisines represented
-cuisinesCount = dataset['cuisinesCount'] # frequency of each of the 20 cuisines in the dataset
-ingredientsSet = dataset['ingredientsCount'] # set of the 6714 ingredients represented
-ingredientsCount = dataset['ingredientsCount'] # frequency of each of the 6714 ingredients in the dataset
 ```
